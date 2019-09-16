@@ -15,21 +15,20 @@ var deckMaster = [][]int{
 var deckFlag = [4][13]bool{}
 
 type Deck struct {
-	suit int
-	num  int
 }
 
 func (d *Deck) Drawcard() int {
 	rand.Seed(time.Now().UnixNano())
+	var suit, num int
 	for {
-		d.suit = rand.Intn(4)
-		d.num = rand.Intn(13)
-		if !deckFlag[d.suit][d.num] {
-			deckFlag[d.suit][d.num] = true
+		suit = rand.Intn(4)
+		num = rand.Intn(13)
+		if !deckFlag[suit][num] {
+			deckFlag[suit][num] = true
 			break
 		}
 	}
-	return deckMaster[d.suit][d.num]
+	return deckMaster[suit][num]
 }
 
 func ShowDeckFlag() {
