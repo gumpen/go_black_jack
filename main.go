@@ -1,7 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	fmt.Println("hello")
+	deck := &Deck{}
+	for i := 0; i < 52; i++ {
+		fmt.Println(deck.Drawcard())
+	}
+
 }
